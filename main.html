@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>二维码查询</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            padding: 10px;
+            max-width: 100%;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            padding: 12px 15px;
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .content {
+            padding: 15px;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .input-group label {
+            width: 80px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            font-size: 14px;
+            word-break: break-all;
+        }
+
+        .table th {
+            background-color: #f5f5f5;
+            text-align: left;
+            width: 30%;
+            color: #333;
+        }
+
+        .table td {
+            background-color: white;
+        }
+
+        .warning {
+            color: #f00;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #f0f0f0;
+        }
+
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+
+            .header {
+                padding: 10px;
+                font-size: 15px;
+            }
+
+            .content {
+                padding: 10px;
+            }
+
+            .input-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .input-group label {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+
+            .input-group input {
+                width: 100%;
+            }
+
+            .table th, .table td {
+                padding: 8px;
+                font-size: 13px;
+            }
+
+            .warning {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- 二维码查询部分 -->
+<div class="container">
+    <div class="header">二维码查询</div>
+    <div class="content">
+        <div class="input-group">
+            <label for="code">维修编码：</label>
+            <input type="text" id="code" placeholder="请输入维修编码" value="01100012025001000011">
+        </div>
+    </div>
+</div>
+
+<!-- 维修信息部分 -->
+<div class="container">
+    <div class="header">维修信息</div>
+    <div class="content">
+        <table class="table">
+            <tr>
+                <th>产品名称</th>
+                <td>灭火器产品->手提式灭火器->手提式干粉灭火器->MFMZ</td>
+            </tr>
+            <tr>
+                <th>规格型号</th>
+                <td>FMZ/ABC5</td>
+            </tr>
+            <tr>
+                <th>维修机构名称</th>
+                <td>姜林伟能力有限公司</td>
+            </tr>
+            <tr>
+                <th>维修机构所在地址</th>
+                <td>江苏省扬州市姜林伟大爸</td>
+            </tr>
+            <tr>
+                <th>联系方式</th>
+                <td>186****0586</td>
+            </tr>
+            <tr>
+                <th>维修出厂日期</th>
+                <td>2025-03-24</td>
+            </tr>
+            <tr>
+                <th>使用单位名称</th>
+                <td>姜林伟能力有限公司</td>
+            </tr>
+            <tr>
+                <th>使用单位地址</th>
+                <td>江苏省扬州市吾悦广场</td>
+            </tr>
+        </table>
+
+        <div class="warning">
+            保密提醒：请严格按照国家法律法规要求使用信息系统，严禁在系统中传输、存储或发布任何涉密信息或敏感信息，违者将追究相关法律责任。
+        </div>
+    </div>
+</div>
+
+<script>
+    // 简单的响应式处理
+    function adjustForMobile() {
+        const isMobile = window.innerWidth <= 480;
+        const tables = document.querySelectorAll('.table');
+
+        if (isMobile) {
+            tables.forEach(table => {
+                // 在移动端下可以添加额外的样式调整
+            });
+        }
+    }
+
+    // 页面加载和窗口大小改变时调整
+    window.addEventListener('load', adjustForMobile);
+    window.addEventListener('resize', adjustForMobile);
+</script>
+</body>
+</html>
